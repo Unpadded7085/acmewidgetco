@@ -52,15 +52,15 @@ Delivery costs are reduced based on order cost.
 ## Thoughts
 
 I used domain-driven design for the application.
-
 The domain is broken into 4 main areas.
+
 1. Store/Basket
 2. Delivery
 3. Offers
 4. Products
 
-For offers, I decided to make this work similarly to adding products, 
-imagining that the user would be presented with either a coupon code (or an equivalent UI) for adding the special offers.
+For offers, I decided to make this work similarly to adding products,
+imagining that the user would be presented with a coupon code to add to their basket.
 
 For storage, the repository pattern is used.
 For times-sake, I've implemented an in-memory version of them using PHP arrays,
@@ -68,3 +68,8 @@ which could still be useful for testing purposes in a real application.
 
 In the future, a database implementation would be made to persist the data.
 A SQL database like MySQL or PostgreSQL would probably be best for this.
+
+More testing is needed but is not included due to time constraints.
+I have included one unit test and integration test for the store using the provided example test cases.
+
+My personal development environment uses NixOS, so this is why I've included that complexity here.
