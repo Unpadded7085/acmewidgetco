@@ -11,6 +11,9 @@ use AcmeWidgetCo\Store\Products\InMemoryProductRepository;
 use AcmeWidgetCo\Store\Products\Product;
 use AcmeWidgetCo\Store\Products\ProductRepository;
 
+/**
+ * Main entrypoint for the application, containing necessary components for the application.
+ */
 class Store
 {
     private ProductRepository $productRepository;
@@ -21,12 +24,16 @@ class Store
         ProductRepository|null  $productRepository,
         DeliveryCalculator|null $deliveryCalculator,
         OfferRepository|null    $offerRepository
-    ) {
+    )
+    {
         $this->productRepository = $productRepository ?? self::defaultProductRepository();
         $this->deliveryCalculator = $deliveryCalculator ?? self::defaultDeliveryCalculator();
         $this->offerRepository = $offerRepository ?? self::defaultOfferRepository($this->productRepository);
     }
 
+    /**
+     * @return Store a {@link Store} initialized with the example data.
+     */
     public static function createDefault(): Store
     {
         // TODO: Can these args be made optional?
@@ -74,6 +81,9 @@ class Store
         return $offerRepository;
     }
 
+    /**
+     * @return Basket a new basket.
+     */
     public function createBasket(): Basket
     {
         return new Basket(
