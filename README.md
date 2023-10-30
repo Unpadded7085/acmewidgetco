@@ -52,12 +52,7 @@ Delivery costs are reduced based on order cost.
 ## Thoughts
 
 I used domain-driven design for the application.
-The domain is broken into 4 main areas.
-
-1. Store/Basket
-2. Delivery
-3. Offers
-4. Products
+The domain is broken into the following areas.
 
 ![diagram](readme-diagram.svg)
 
