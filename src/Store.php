@@ -1,6 +1,15 @@
 <?php
 
-namespace ThriveCart\Test;
+namespace AcmeWidgetCo\Store;
+
+use AcmeWidgetCo\Store\Delivery\DeliveryCalculator;
+use AcmeWidgetCo\Store\Delivery\ThresholdDeliveryCalculator;
+use AcmeWidgetCo\Store\Offers\BuyOneGetOneDiscountedOffer;
+use AcmeWidgetCo\Store\Offers\InMemoryOfferRepository;
+use AcmeWidgetCo\Store\Offers\OfferRepository;
+use AcmeWidgetCo\Store\Products\InMemoryProductRepository;
+use AcmeWidgetCo\Store\Products\Product;
+use AcmeWidgetCo\Store\Products\ProductRepository;
 
 class Store
 {
@@ -25,7 +34,7 @@ class Store
 
     private static function defaultProductRepository(): ProductRepository
     {
-        $productRepository = new ProductRepository();
+        $productRepository = new InMemoryProductRepository();
         $productRepository->create((new Product())
             ->setName("Red Widget")
             ->setCode("R01")
@@ -53,10 +62,10 @@ class Store
 
     private static function defaultOfferRepository(ProductRepository $productRepository): OfferRepository
     {
-        $offerRepository = new OfferRepository();
+        $offerRepository = new InMemoryOfferRepository();
 
         $product = $productRepository->findByCode("R01");
-        $offerRepository->create((new BuyOneNextDiscountOffer())
+        $offerRepository->create((new BuyOneGetOneDiscountedOffer())
             ->setCode("red-savings")
             ->setProduct($product)
             ->setDiscountPercent(50));

@@ -1,16 +1,22 @@
 <?php
 
-namespace ThriveCart\Test;
+namespace AcmeWidgetCo\Store\Offers;
 
 use InvalidArgumentException;
 
-class OfferRepository
+/**
+ * Repository for storing {@link Offer}s, using an in-memory array.
+ */
+class InMemoryOfferRepository implements OfferRepository
 {
     /**
      * @var Offer[]
      */
     private array $offers = [];
 
+    /**
+     * @see OfferRepository::create()
+     */
     public function create(Offer $offer): Offer
     {
         if (isset($this->products[$offer->getCode()])) {
@@ -25,6 +31,9 @@ class OfferRepository
 
     }
 
+    /**
+     * @see OfferRepository::findByCode()
+     */
     public function findByCode(string $code): Offer
     {
         if (!isset($this->offers[$code])) {

@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use ThriveCart\Test\Store;
+use AcmeWidgetCo\Store\Store;
 
 class StoreIntegrationTest extends TestCase
 {

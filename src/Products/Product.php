@@ -1,15 +1,33 @@
 <?php
 
-namespace ThriveCart\Test;
+namespace AcmeWidgetCo\Store\Products;
 
 use DateTime;
 
+/**
+ * A product to be sold.
+ */
 class Product
 {
+    /**
+     * Name of the product.
+     */
     private string $name;
+    /**
+     * Code representing the product. E.g., "Red Widget".
+     */
     private string $code;
+    /**
+     * Price of the product in cents.
+     */
     private int $priceCents;
+    /**
+     * Created timestamp.
+     */
     private DateTime $createdAt;
+    /**
+     * Updated timestamp.
+     */
     private DateTime $updatedAt;
 
     public function getName(): string

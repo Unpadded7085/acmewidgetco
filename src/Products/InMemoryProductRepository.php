@@ -1,11 +1,14 @@
 <?php
 
-namespace ThriveCart\Test;
+namespace AcmeWidgetCo\Store\Products;
 
 
 use InvalidArgumentException;
 
-class ProductRepository
+/**
+ * Repository for storing {@link Product}s, using an in-memory array.
+ */
+class InMemoryProductRepository implements ProductRepository
 {
     /**
      * @var Product[]
@@ -15,7 +18,7 @@ class ProductRepository
     public function create(Product $product): Product
     {
         if (isset($this->products[$product->getCode()])) {
-            throw new InvalidArgumentException("Product with code {$product->getCode()} already exists");
+            throw new InvalidArgumentException("Product {$product->getCode()} already exists");
         }
 
         $now = new \DateTime();
@@ -28,7 +31,7 @@ class ProductRepository
     public function findByCode(string $code): Product
     {
         if (!isset($this->products[$code])) {
-            throw new InvalidArgumentException("Product with code {$code} not found");
+            throw new InvalidArgumentException("Product {$code} not found");
         }
 
         return $this->products[$code];

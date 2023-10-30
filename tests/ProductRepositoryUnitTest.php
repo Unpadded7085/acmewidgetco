@@ -1,14 +1,14 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use ThriveCart\Test\Product;
-use ThriveCart\Test\ProductRepository;
+use AcmeWidgetCo\Store\Products\InMemoryProductRepository;
+use AcmeWidgetCo\Store\Products\Product;
 
 class ProductRepositoryUnitTest extends TestCase
 {
     public function testCreateSuccess(): void
     {
-        $repo = new ProductRepository();
+        $repo = new InMemoryProductRepository();
         $name = "Red Widget";
         $code = "R01";
         $priceCents = 3295;
@@ -28,7 +28,7 @@ class ProductRepositoryUnitTest extends TestCase
     {
         $this->expectException(InvalidArgumentException::class);
 
-        $repo = new ProductRepository();
+        $repo = new InMemoryProductRepository();
         $name = "Red Widget";
         $code = "R01";
         $priceCents = 3295;
@@ -43,7 +43,7 @@ class ProductRepositoryUnitTest extends TestCase
 
     public function testFindByCodeSuccess(): void
     {
-        $repo = new ProductRepository();
+        $repo = new InMemoryProductRepository();
         $name = "Red Widget";
         $code = "R01";
         $priceCents = 3295;
@@ -59,7 +59,7 @@ class ProductRepositoryUnitTest extends TestCase
     {
         $this->expectException(InvalidArgumentException::class);
 
-        $repo = new ProductRepository();
+        $repo = new InMemoryProductRepository();
         $repo->findByCode("R01");
     }
 }
