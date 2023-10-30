@@ -68,5 +68,6 @@ A SQL database like MySQL or PostgreSQL would probably be best for this.
 
 More testing is needed but is not included due to time constraints.
 I have included one unit test and integration test for the store using the provided example test cases.
+Some other features, like code linting, containerization, and automated testing (CI) are also absent.
 
 My personal development environment uses NixOS, so this is why I've included that complexity here.
