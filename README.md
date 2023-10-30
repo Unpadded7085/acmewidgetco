@@ -59,6 +59,8 @@ The domain is broken into 4 main areas.
 3. Offers
 4. Products
 
+![diagram](readme-diagram.svg)
+
 For offers, I decided to make this work similarly to adding products,
 imagining that the user would be presented with a coupon code to add to their basket.
 
