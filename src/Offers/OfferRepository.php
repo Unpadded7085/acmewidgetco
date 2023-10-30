@@ -2,7 +2,6 @@
 
 namespace AcmeWidgetCo\Store\Offers;
 
-
 /**
  * Repository for storing {@link Offer}s.
  */

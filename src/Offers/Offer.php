@@ -61,10 +61,10 @@ abstract class Offer
      *
      * @return bool {@code true} if the offer applies to the current {@link Basket}, {@code false} otherwise.
      */
-    public abstract function applies(Basket $basket): bool;
+    abstract public function applies(Basket $basket): bool;
 
     /**
      * @return int the discount for the {@link Basket}, in cents.
      */
-    public abstract function getDiscountCents(Basket $basket): int;
+    abstract public function getDiscountCents(Basket $basket): int;
 }

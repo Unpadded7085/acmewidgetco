@@ -2,7 +2,6 @@
 
 namespace AcmeWidgetCo\Store\Products;
 
-
 use InvalidArgumentException;
 
 /**

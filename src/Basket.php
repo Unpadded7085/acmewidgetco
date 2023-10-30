@@ -37,10 +37,11 @@ class Basket
      */
     private array $offers = [];
 
-    public function __construct(ProductRepository  $productRepository,
-                                DeliveryCalculator $deliveryCalculator,
-                                OfferRepository    $offerRepository)
-    {
+    public function __construct(
+        ProductRepository  $productRepository,
+        DeliveryCalculator $deliveryCalculator,
+        OfferRepository    $offerRepository
+    ) {
         $this->productRepository = $productRepository;
         $this->deliveryCalculator = $deliveryCalculator;
         $this->offerRepository = $offerRepository;

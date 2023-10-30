@@ -2,7 +2,6 @@
 
 namespace AcmeWidgetCo\Store\Offers;
 
-
 use AcmeWidgetCo\Store\Basket;
 use AcmeWidgetCo\Store\Products\Product;
 

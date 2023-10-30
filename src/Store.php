@@ -17,10 +17,11 @@ class Store
     private DeliveryCalculator $deliveryCalculator;
     private OfferRepository $offerRepository;
 
-    public function __construct(ProductRepository|null  $productRepository,
-                                DeliveryCalculator|null $deliveryCalculator,
-                                OfferRepository|null    $offerRepository)
-    {
+    public function __construct(
+        ProductRepository|null  $productRepository,
+        DeliveryCalculator|null $deliveryCalculator,
+        OfferRepository|null    $offerRepository
+    ) {
         $this->productRepository = $productRepository ?? self::defaultProductRepository();
         $this->deliveryCalculator = $deliveryCalculator ?? self::defaultDeliveryCalculator();
         $this->offerRepository = $offerRepository ?? self::defaultOfferRepository($this->productRepository);
@@ -78,6 +79,7 @@ class Store
         return new Basket(
             $this->productRepository,
             $this->deliveryCalculator,
-            $this->offerRepository);
+            $this->offerRepository
+        );
     }
 }

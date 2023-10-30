@@ -2,7 +2,6 @@
 
 namespace AcmeWidgetCo\Store\Delivery;
 
-
 use AcmeWidgetCo\Store\Basket;
 
 /**
