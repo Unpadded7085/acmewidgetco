@@ -2,6 +2,10 @@
 help:
   just --list --unsorted
 
+# Install composer dependencies
+init:
+  composer install
+
 # Run tests
 test:
   ./vendor/bin/phpunit tests
@@ -12,7 +16,7 @@ format-nix:
 
 # Format .php files
 format-php:
-    ./vendor/bin/php-cs-fixer fix
+  ./vendor/bin/php-cs-fixer fix
 
 # Format source files
 format: format-nix format-php

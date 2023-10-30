@@ -4,7 +4,26 @@ This repository contains a proof of concept for a new sales system for Acme Widg
 
 ## Getting Started
 
-**TODO**
+If you're familiar with [Nix](https://nixos.org/), you may use `nix-shell` to install the required system packages.
+
+Otherwise, you'll need to install:
+
+- PHP 8.2 or later (it may work with earlier versions, but this is untested)
+- (Optional) [Just](https://github.com/casey/just) - a handy way to save and run project-specific commands.
+
+Now run `just init` (or `composer install`), then `just test` (or `./vendor/bin/phpunit tests`) to run the tests.
+
+## Example API Usage
+
+```php
+$store = Store::createDefault();
+$basket = $store->createBasket();
+$basket->addProduct("R01");
+$basket->addProduct("G01");
+$basket->addOffer("red-savings");
+$totalCostCents = $basket->getTotalCents();
+// $totalCostCents = 3785;
+```
 
 ## Requirements
 
@@ -29,3 +48,23 @@ Delivery costs are reduced based on order cost.
 ### Special Offers
 
 - Buy one red widget, get the second half price.
+
+## Thoughts
+
+I used domain-driven design for the application.
+
+The domain is broken into 4 main areas.
+1. Store/Basket
+2. Delivery
+3. Offers
+4. Products
+
+For offers, I decided to make this work similarly to adding products, 
+imagining that the user would be presented with either a coupon code (or an equivalent UI) for adding the special offers.
+
+For storage, the repository pattern is used.
+For times-sake, I've implemented an in-memory version of them using PHP arrays,
+which could still be useful for testing purposes in a real application.
+
+In the future, a database implementation would be made to persist the data.
+A SQL database like MySQL or PostgreSQL would probably be best for this.
